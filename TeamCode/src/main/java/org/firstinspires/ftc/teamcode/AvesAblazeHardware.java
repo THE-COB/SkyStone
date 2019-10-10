@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
@@ -13,6 +14,8 @@ public class AvesAblazeHardware {
 
     public ColorSensor floorColor;
     public DistanceSensor floorRange;
+
+    BNO055IMU imu;
 
     HardwareMap hardwareMap;
     public void init(HardwareMap ahwMap){
@@ -29,7 +32,14 @@ public class AvesAblazeHardware {
         motor1.setDirection(DcMotor.Direction.REVERSE);
         motor3.setDirection(DcMotor.Direction.REVERSE);
 
+        motor0.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        motor1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        motor2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        motor3.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
         floorColor = hardwareMap.get(ColorSensor.class, "floorColor");
-        floorRange = hardwareMap.get(DistanceSensor.class, "floorRange");
+        floorRange = hardwareMap.get(DistanceSensor.class, "floorColor");
+
+        imu = hardwareMap.get(BNO055IMU.class, "imu");
     }
 }

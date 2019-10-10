@@ -19,6 +19,24 @@ public interface AvesAblazeOpModeSimplified {
     void leftRight(double power);
 
     /**
+     * Rotates the robot in place
+     * @param power is a value from -1 to 1, positive is clockwise, negative is couter-clockwise
+     */
+    void rotate(double power);
+
+    /**
+     * Returns the encoder position of a motor by number
+     * @param num the motor number on the drivetrain [0,3]
+     * @return encoder position
+     */
+    int getMotorPosition(int num);
+
+    /**
+     * Stops motors lol
+     */
+    void stopMotors();
+
+    /**
      * Detects if the color sensor is over the red tape
      */
     boolean isRed();
@@ -28,4 +46,21 @@ public interface AvesAblazeOpModeSimplified {
      */
     boolean isBlue();
 
+    /**
+     * returns the red value of the color sensor
+     * @return
+     */
+    double getFloorRed();
+
+    /**
+     * returns green value of the color sensor
+     * @return
+     */
+    double getFloorGreen();
+
+    /**
+     *
+     * @return
+     */
+    double getFloorBlue();
 }
