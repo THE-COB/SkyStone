@@ -46,21 +46,4 @@ public interface AvesAblazeOpModeSimplified {
      */
     boolean isBlue();
 
-    /**
-     * returns the red value of the color sensor
-     * @return
-     */
-    double getFloorRed();
-
-    /**
-     * returns green value of the color sensor
-     * @return
-     */
-    double getFloorGreen();
-
-    /**
-     *
-     * @return
-     */
-    double getFloorBlue();
 }

@@ -60,4 +60,5 @@ public abstract class AvesAblazeOpMode extends LinearOpMode implements AvesAblaz
             return false;
         }
     }
+
 }

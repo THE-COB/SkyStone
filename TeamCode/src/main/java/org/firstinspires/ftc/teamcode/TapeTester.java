@@ -18,6 +18,7 @@ public class TapeTester extends AvesAblazeOpMode {
                 telemetry.addData("motor1", getMotorPosition(1));
                 telemetry.addData("motor2", getMotorPosition(2));
                 telemetry.addData("motor3", getMotorPosition(3));
+                telemetry.addData("floorColor", robot.floorColor.red()+","+robot.floorColor.green()+","+robot.floorColor.blue());
 
             }
             else if(isRed()){
