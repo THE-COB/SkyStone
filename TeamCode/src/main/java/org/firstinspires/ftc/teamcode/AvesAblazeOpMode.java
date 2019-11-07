@@ -33,6 +33,13 @@ public abstract class AvesAblazeOpMode extends LinearOpMode implements AvesAblaz
         robot.motor3.setPower(-power);
     }
 
+    public void polarDrive(double power, double theta, double rotation) {
+        robot.motor0.setPower(power*Math.sin(theta+(Math.PI/4))+rotation);
+        robot.motor1.setPower(power*Math.cos(theta+(Math.PI/4))-rotation);
+        robot.motor2.setPower(power*Math.cos(theta+(Math.PI/4))+rotation);
+        robot.motor3.setPower(power*Math.sin(theta+(Math.PI/4))-rotation);
+    }
+
     public int getMotorPosition(int num){
         switch (num){
             case 0: return robot.motor0.getCurrentPosition();
@@ -44,21 +51,38 @@ public abstract class AvesAblazeOpMode extends LinearOpMode implements AvesAblaz
     }
 
     public boolean isRed(){
-        if(robot.floorColor.green() <= robot.floorColor.red()*0.6 && robot.floorColor.blue() <= robot.floorColor.red()*0.6){
-            return true;
+        return(robot.floorColor.green() <= robot.floorColor.red()*0.6 && robot.floorColor.blue() <= robot.floorColor.red()*0.6);
+    }
+
+    public boolean isBlue() {
+        return (robot.floorColor.red() <= robot.floorColor.blue() * 0.5 && robot.floorColor.green() <= robot.floorColor.blue() * 0.8);
+    }
+
+    public void foundationClamp(boolean open){
+        if(open){
+            robot.foundation.setPosition(0.02);
         }
-        else{
-            return false;
+        if(!open){
+            robot.foundation.setPosition(0.5);
         }
     }
 
-    public boolean isBlue(){
-        if(robot.floorColor.red() <= robot.floorColor.blue()*0.5 && robot.floorColor.green() <= robot.floorColor.blue()*0.8){
-            return true;
+    public void setClawPosition(boolean clawPosition){
+        if (clawPosition){
+            robot.claw.setPosition(0);
+    }
+        else if (!clawPosition){
+            robot.claw.setPosition(1);
+    }
+}
+    public void setIntake(boolean on){
+        if(on){
+            robot.leftIntake.setPower(1);
+            robot.rightIntake.setPower(1);
         }
         else{
-            return false;
+            robot.leftIntake.setPower(0);
+            robot.rightIntake.setPower(0);
         }
     }
-
 }

@@ -25,11 +25,25 @@ public interface AvesAblazeOpModeSimplified {
     void rotate(double power);
 
     /**
+     * All directional strafing
+     * @param power double from 0-1 for how much power the motors should have
+     * @param theta angle to drive at in radians from -pi,pi
+     * @param rotation double from 0,1 for how much power you want to change direction robot faces
+     */
+    void polarDrive(double power, double theta, double rotation);
+
+    /**
      * Returns the encoder position of a motor by number
      * @param num the motor number on the drivetrain [0,3]
      * @return encoder position
      */
     int getMotorPosition(int num);
+
+    /**
+     * Opens or closes the foundation servo for moving the foundation
+     * @param open true if you want to clamp the foundation (out) and false if you want to unclamp (in)
+     */
+    void foundationClamp(boolean open);
 
     /**
      * Stops motors lol
@@ -46,4 +60,15 @@ public interface AvesAblazeOpModeSimplified {
      */
     boolean isBlue();
 
+    /**
+     * Moves claw
+     * true = open; false = close
+     */
+    void setClawPosition(boolean clawPosition);
+
+    /**
+     * method to turn on the intake wheels
+     * @param on for turning on intake or off
+     */
+    void setIntake(boolean on);
 }

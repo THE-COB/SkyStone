@@ -117,6 +117,13 @@ public class PushbotAutoDriveByTime_Linear extends LinearOpMode {
         robot.rightDrive.setPower(0);
         robot.leftClaw.setPosition(1.0);
         robot.rightClaw.setPosition(0.0);
+        double numClaw = 0;
+        runtime.reset();/*
+        while (runtime.seconds() < numClaw)
+            robot.leftClaw.setPosition();
+            robot.rightClaw.setPosition();*/
+
+
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
