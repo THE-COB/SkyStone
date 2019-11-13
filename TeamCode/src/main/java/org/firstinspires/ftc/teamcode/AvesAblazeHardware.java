@@ -52,8 +52,6 @@ public class AvesAblazeHardware {
 
         imu = hardwareMap.get(BNO055IMU.class, "imu");
 
-        claw = hardwareMap.get(Servo.class, "claw");
-
         leftIntake = hardwareMap.get(DcMotor.class, "leftIntake");
         rightIntake = hardwareMap.get(DcMotor.class, "rightIntake");
         leftIntake.setDirection(DcMotorSimple.Direction.REVERSE);

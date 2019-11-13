@@ -51,11 +51,17 @@ public abstract class AvesAblazeOpMode extends LinearOpMode implements AvesAblaz
     }
 
     public boolean isRed(){
-        return(robot.floorColor.green() <= robot.floorColor.red()*0.6 && robot.floorColor.blue() <= robot.floorColor.red()*0.6);
+     //   if (robot.floorColor.green() <= robot.floorColor.red() * 0.5 && robot.floorColor.blue() <= robot.floorColor.red() * 0.5) {
+            return (robot.floorColor.red() >= 75);
+    //    }
+    //    else{
+    //        return false;
+    //    }
     }
 
-    public boolean isBlue() {
-        return (robot.floorColor.red() <= robot.floorColor.blue() * 0.5 && robot.floorColor.green() <= robot.floorColor.blue() * 0.8);
+    public boolean isBlue(){
+    //    return (robot.floorColor.red() <= robot.floorColor.blue() * 0.5 && robot.floorColor.green() <= robot.floorColor.blue() * 0.7);
+        return (robot.floorColor.blue() >= 50);
     }
 
     public void foundationClamp(boolean open){
@@ -67,22 +73,19 @@ public abstract class AvesAblazeOpMode extends LinearOpMode implements AvesAblaz
         }
     }
 
-    public void setClawPosition(boolean clawPosition){
-        if (clawPosition){
-            robot.claw.setPosition(0);
-    }
-        else if (!clawPosition){
-            robot.claw.setPosition(1);
-    }
-}
     public void setIntake(boolean on){
         if(on){
-            robot.leftIntake.setPower(1);
+            robot.leftIntake.setPower(-1);
             robot.rightIntake.setPower(1);
         }
         else{
-            robot.leftIntake.setPower(0);
-            robot.rightIntake.setPower(0);
+            robot.leftIntake.setPower(1);
+            robot.rightIntake.setPower(-1);
         }
+    }
+
+    public void stopIntake(){
+        robot.leftIntake.setPower(0);
+        robot.rightIntake.setPower(0);
     }
 }

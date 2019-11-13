@@ -27,14 +27,34 @@ public class TeleOp0 extends AvesAblazeOpMode {
             else if(gamepad1.dpad_right){
                 leftRight(0.5);
             }
-            else if(Math.abs(moveY) > 0.25){
+            else if(Math.abs(moveY) > 0.2){
                 upDown(moveY);
             }
-            else if(Math.abs(moveX) > 0.25){
+            else if(Math.abs(moveX) > 0.2){
                 leftRight(moveX);
+            }
+            else if(Math.abs(gamepad1.right_stick_x) > 0.2){
+                rotate(gamepad1.right_stick_x);
             }
             else{
                 stopMotors();
+            }
+
+            if(gamepad1.right_bumper){
+                foundationClamp(true);
+            }
+            if(gamepad1.left_bumper){
+                foundationClamp(false);
+            }
+
+            if(gamepad1.a){
+                setIntake(true);
+            }
+            if(gamepad1.b){
+                setIntake(false);
+            }
+            else{
+                stopIntake();
             }
         }
 

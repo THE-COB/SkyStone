@@ -61,14 +61,13 @@ public interface AvesAblazeOpModeSimplified {
     boolean isBlue();
 
     /**
-     * Moves claw
-     * true = open; false = close
-     */
-    void setClawPosition(boolean clawPosition);
-
-    /**
      * method to turn on the intake wheels
      * @param on for turning on intake or off
      */
     void setIntake(boolean on);
+
+    /**
+     * method that stops the intake
+     */
+    void stopIntake();
 }
