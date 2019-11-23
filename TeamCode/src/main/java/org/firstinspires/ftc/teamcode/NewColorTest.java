@@ -1,9 +1,10 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 @TeleOp(name="new color test", group = "a")
-
+@Disabled
 public class NewColorTest extends AvesAblazeOpMode {
 
     @Override

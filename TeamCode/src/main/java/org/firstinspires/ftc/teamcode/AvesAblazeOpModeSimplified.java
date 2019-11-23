@@ -70,4 +70,27 @@ public interface AvesAblazeOpModeSimplified {
      * method that stops the intake
      */
     void stopIntake();
+
+    /**
+     * Gets encoder position of lift motor
+     * @return double of the encoder value of the lift motor
+     */
+    double getLiftPosition();
+
+    /**
+     * Opens claw
+     */
+    void openClaw();
+
+    /**
+     * Close claw
+     */
+    void closeClaw();
+
+    /**
+     * Moves lift based off power
+     * @param power what do you think
+     */
+    void runLift(double power);
+
 }

@@ -1,9 +1,11 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 @TeleOp (name = "PolarDriveTest", group = "a")
+@Disabled
 public class PolarDriveTest extends AvesAblazeOpMode {
 
     @Override

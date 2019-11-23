@@ -13,10 +13,10 @@ public abstract class AvesAblazeOpMode extends LinearOpMode implements AvesAblaz
     }
 
     public void leftRight(double power){
-        robot.motor0.setPower(power);
-        robot.motor1.setPower(-power);
-        robot.motor2.setPower(-power);
-        robot.motor3.setPower(power);
+        robot.motor0.setPower(-power);
+        robot.motor1.setPower(power);
+        robot.motor2.setPower(power);
+        robot.motor3.setPower(-power);
     }
 
     public void stopMotors() {
@@ -87,5 +87,22 @@ public abstract class AvesAblazeOpMode extends LinearOpMode implements AvesAblaz
     public void stopIntake(){
         robot.leftIntake.setPower(0);
         robot.rightIntake.setPower(0);
+    }
+
+
+    public double getLiftPosition(){
+        return robot.lift.getCurrentPosition();
+    }
+
+    public void openClaw(){
+        robot.claw.setPosition(0.2);
+    }
+
+    public void closeClaw(){
+        robot.claw.setPosition(0.8);
+    }
+
+    public void runLift(double power){
+        robot.lift.setPower(power);
     }
 }

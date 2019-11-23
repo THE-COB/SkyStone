@@ -16,6 +16,8 @@ public class AvesAblazeHardware {
 
     public Servo foundation;
     public Servo claw;
+    public Servo armRotate;
+    public Servo clawRotate;
 
     public ColorSensor floorColor;
     public DistanceSensor floorRange;
@@ -23,6 +25,7 @@ public class AvesAblazeHardware {
     public DcMotor leftIntake;
     public DcMotor rightIntake;
 
+    public DcMotor lift;
     BNO055IMU imu;
 
     HardwareMap hardwareMap;
@@ -54,6 +57,13 @@ public class AvesAblazeHardware {
 
         leftIntake = hardwareMap.get(DcMotor.class, "leftIntake");
         rightIntake = hardwareMap.get(DcMotor.class, "rightIntake");
-        leftIntake.setDirection(DcMotorSimple.Direction.REVERSE);
+        rightIntake.setDirection(DcMotorSimple.Direction.FORWARD);
+
+        claw = hardwareMap.get(Servo.class, "claw");
+        armRotate = hardwareMap.get(Servo.class, "armRotate");
+        clawRotate = hardwareMap.get(Servo.class, "clawRotate");
+
+        lift = hardwareMap.get(DcMotor.class, "lift");
+        lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 }

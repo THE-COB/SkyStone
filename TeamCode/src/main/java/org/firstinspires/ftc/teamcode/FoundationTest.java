@@ -1,8 +1,10 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 @TeleOp(name = "Foundation Test", group = "a")
+@Disabled
 public class FoundationTest extends AvesAblazeOpMode {
 
     @Override
