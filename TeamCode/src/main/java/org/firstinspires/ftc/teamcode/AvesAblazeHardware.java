@@ -37,6 +37,16 @@ public class AvesAblazeHardware {
         motor2 = hardwareMap.get(DcMotor.class, "motor2");
         motor3 = hardwareMap.get(DcMotor.class, "motor3");
 
+        motor0.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        motor1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        motor2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        motor3.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        motor0.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        motor1.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        motor2.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        motor3.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
         motor0.setDirection(DcMotor.Direction.FORWARD);
         motor2.setDirection(DcMotor.Direction.FORWARD);
 
@@ -65,5 +75,7 @@ public class AvesAblazeHardware {
 
         lift = hardwareMap.get(DcMotor.class, "lift");
         lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        lift.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        lift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 }
